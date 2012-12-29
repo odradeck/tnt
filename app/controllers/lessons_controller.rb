@@ -3,7 +3,9 @@ class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
   def index
-    @lessons = Lesson.all
+    #@lessons = Lesson.all
+    lessons_ordered = current_user.lessons.order("date DESC")
+    @lessons = lessons_ordered.paginate(page: params[:page], :per_page => 10)
 
     respond_to do |format|
       format.html # index.html.erb

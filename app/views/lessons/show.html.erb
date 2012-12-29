@@ -44,9 +44,9 @@
 		</div>
 		<div class='span4'>
 			<ul>
-			<li><strong>업무강도 : </strong> <%= @lesson.work_hardness %></li>
-			<li><strong>몸상태: </strong> <%= @lesson.body_condition %></li>
-			<li><strong>마음상태: </strong> <%= @lesson.mental_condition %></li>
+			<li><strong>업무강도 : </strong> <%= @lesson.str_work_hardness %></li>
+			<li><strong>몸상태: </strong> <%= @lesson.str_body_condition %></li>
+			<li><strong>마음상태: </strong> <%= @lesson.str_mental_condition %></li>
 			</ul>
 
 		</div>
@@ -58,13 +58,10 @@
 		</div>
 	</div>
     
-    <h4>운동했니?</h4>
-	<% if @lesson.ex_running %>달리기 <%end%>
-	<% if @lesson.ex_upper %>상체 웨이트<%end%>
-	<% if @lesson.ex_lower %>하체웨이트 <%end%>
-	<% if @lesson.ex_mid %>복부웨이트 <%end%>
-	<% if @lesson.ex_streching %>스트레칭 <%end%>
+    <h4>무슨 운동했니?</h4>
+    <p>
+ 	<%= @lesson.str_ex %>
+ 	</p>
      
     
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
+<%= link_to '수정', edit_lesson_path(@lesson) %> | <%= link_to '삭제', @lesson, confirm: 'Are you sure?', method: :delete %> | <%= link_to '목록', lessons_path %>

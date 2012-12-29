@@ -32,9 +32,9 @@
           <div class="container nav-collapse">
           	<ul class="nav pull-right">
 				<% if user_signed_in? %>
-					<li><%= link_to('오늘의교훈입력', '#', :style=>"color:red;")%></li>
+					<li><%= link_to('오늘의교훈입력', new_lesson_path, :style=>"color:red;")%></li>
 					<li><%= link_to('다른교훈들', '#')%></li>
-					<li><%= link_to('나의교훈', '#')%></li>
+					<li><%= link_to('나의교훈', lessons_path)%></li>
 	  				<li><%= link_to('로그아웃', destroy_user_session_path, :method => :delete) %></li>
 	  				<li><%= link_to(current_user.name, edit_user_registration_path) %></li>
 	  				<% if current_user.admin? %>

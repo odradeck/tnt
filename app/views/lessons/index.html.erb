@@ -1,37 +1,27 @@
-<h1>Listing lessons</h1>
+<h1>나의 기록들</h1>
 
-<table>
+<table class="table">
   <tr>
-    <th>Today</th>
-    <th>Tommorrow</th>
-    <th>Dummylog</th>
-    <th>Date</th>
-    <th>Wakeuptime</th>
-    <th>Sleeptime</th>
-    <th>Workinghour</th>
-    <th>Playinghour</th>
-    <th>Ex running</th>
-    <th>Ex upper</th>
-    <th>Ex lower</th>
-    <th>Ex mid</th>
-    <th>Work hardness</th>
-    <th>Body condition</th>
-    <th>Mental condition</th>
-    <th>Input</th>
-    <th>Output</th>
-    <th>Ex streching</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>일자</th>
+    <th>오늘의교훈</th>
+    <th>내일의목표</th>
+    <th>업무강도</th>
+    <th>몸상태</th>
+    <th>정신상태</th>
+    <th>업무/논시간</th>
+    <th>배운거</th>
+    <th>만든거</th>
+    <th>기상시간/취침시간</th>
+    <th>운동</th>
   </tr>
 
 <% @lessons.each do |lesson| %>
   <tr>
+    <td><%= link_to lesson.date.strftime("%m-%d"), lesson %></td>
     <td><%= lesson.today %></td>
-    <td><%= lesson.tommorrow %></td>
+    <td><%= lesson.tomorrow %></td>
     <td><%= lesson.dummylog %></td>
-    <td><%= lesson.date %></td>
+    
     <td><%= lesson.wakeuptime %></td>
     <td><%= lesson.sleeptime %></td>
     <td><%= lesson.workinghour %></td>
@@ -46,14 +36,11 @@
     <td><%= lesson.input %></td>
     <td><%= lesson.output %></td>
     <td><%= lesson.ex_streching %></td>
-    <td><%= lesson.user_id %></td>
-    <td><%= link_to 'Show', lesson %></td>
-    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-    <td><%= link_to 'Destroy', lesson, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
+<center><%= will_paginate %></center>
 
 <%= link_to 'New Lesson', new_lesson_path %>
