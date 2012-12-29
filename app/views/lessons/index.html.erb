@@ -1,0 +1,59 @@
+<h1>Listing lessons</h1>
+
+<table>
+  <tr>
+    <th>Today</th>
+    <th>Tommorrow</th>
+    <th>Dummylog</th>
+    <th>Date</th>
+    <th>Wakeuptime</th>
+    <th>Sleeptime</th>
+    <th>Workinghour</th>
+    <th>Playinghour</th>
+    <th>Ex running</th>
+    <th>Ex upper</th>
+    <th>Ex lower</th>
+    <th>Ex mid</th>
+    <th>Work hardness</th>
+    <th>Body condition</th>
+    <th>Mental condition</th>
+    <th>Input</th>
+    <th>Output</th>
+    <th>Ex streching</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @lessons.each do |lesson| %>
+  <tr>
+    <td><%= lesson.today %></td>
+    <td><%= lesson.tommorrow %></td>
+    <td><%= lesson.dummylog %></td>
+    <td><%= lesson.date %></td>
+    <td><%= lesson.wakeuptime %></td>
+    <td><%= lesson.sleeptime %></td>
+    <td><%= lesson.workinghour %></td>
+    <td><%= lesson.playinghour %></td>
+    <td><%= lesson.ex_running %></td>
+    <td><%= lesson.ex_upper %></td>
+    <td><%= lesson.ex_lower %></td>
+    <td><%= lesson.ex_mid %></td>
+    <td><%= lesson.work_hardness %></td>
+    <td><%= lesson.body_condition %></td>
+    <td><%= lesson.mental_condition %></td>
+    <td><%= lesson.input %></td>
+    <td><%= lesson.output %></td>
+    <td><%= lesson.ex_streching %></td>
+    <td><%= lesson.user_id %></td>
+    <td><%= link_to 'Show', lesson %></td>
+    <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
+    <td><%= link_to 'Destroy', lesson, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lesson', new_lesson_path %>

@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
   
   #for Oauth
   has_many :services, :dependent => :destroy
+  
+  has_many :lessons
+  
+  def last_lesson
+    @ll ||= self.lessons.order("date DESC").first
+    @ll
+  end
+  
+  
 end

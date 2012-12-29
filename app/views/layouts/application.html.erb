@@ -31,14 +31,17 @@
           <%= link_to "오늘의교훈 내일의목표", root_path, id: "logo" %>
           <div class="container nav-collapse">
           	<ul class="nav pull-right">
-				<li><%= link_to "About",    about_path %></li>
 				<% if user_signed_in? %>
+					<li><%= link_to('오늘의교훈입력', '#', :style=>"color:red;")%></li>
+					<li><%= link_to('다른교훈들', '#')%></li>
+					<li><%= link_to('나의교훈', '#')%></li>
 	  				<li><%= link_to('로그아웃', destroy_user_session_path, :method => :delete) %></li>
 	  				<li><%= link_to(current_user.name, edit_user_registration_path) %></li>
 	  				<% if current_user.admin? %>
-	  					<li><%= link_to "Admin", "#" %></li>
+	  					<li><%= link_to "관리자", "#" %></li>
 	  				<% end %>
 				<% else %>
+					<li><%= link_to "이건뭔가?",    about_path %></li>
 	  				<li><a href="/users/auth/facebook"><img src="/facebook_20.png" width="20"></a></li>
 	  				<li> <%= link_to('로그인', new_user_session_path)  %></li>
 	  				<li> <%= link_to('가입', new_user_registration_path)  %> </li>
@@ -57,23 +60,8 @@
 		<% end %>
         <div class="row-fluid">
         	
-        	<% if user_signed_in? %>
-        	<div class="span3">
-              <div class="well sidebar-nav">
-                <h3>Sidebar</h3>
-                <ul class="nav nav-list">
-                  <li class="nav-header">Sidebar</li>
-                  <li><%= link_to "Link1", "/path1"  %></li>
-                  <li><%= link_to "Link2", "/path2"  %></li>
-                  <li><%= link_to "Link3", "/path3"  %></li>
-                </ul>
-              </div><!--/.well -->
-            </div><!--/span-->
+        	<div class="span12">
            
-           <div class="span9"> 
-           <%else%> 
-           <div class="span12">
-           <%end%>
            	   <%= yield %>
             </div>
             

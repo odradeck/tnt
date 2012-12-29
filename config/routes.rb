@@ -1,4 +1,6 @@
 Tnt::Application.routes.draw do
+  resources :lessons
+
   resources :comments
 
   resources :b_categories

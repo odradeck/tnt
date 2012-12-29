@@ -1,10 +1,10 @@
 <div class="center hero-unit">
-  <h1>Welcome to Proton</h1>
+  <h1>오늘의 교훈 내일의 목표</h1>
 
   <h2>
-    This is Prototype template app for rapdid prototyping<br/>
-    Powered by <a href="http://gaesin.com">Gaesin instant development service</a>
+    인생은 하루 하루 배움의 연속입니다.
   </h2>
-
-  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+  	<% unless user_signed_in? %>
+  <%= link_to "당장가입", '#', class: "btn btn-large btn-primary" %>
+  <%end%>
 </div>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!,  only: [:index]
-  before_filter :admin_user, only: [:set_admin, :unset_admin, :show]
+  before_filter :authenticate_user!
+  before_filter :admin_user, only: [:set_admin, :unset_admin, :show, :index]
      
   def show
     @user = User.find(params[:id])

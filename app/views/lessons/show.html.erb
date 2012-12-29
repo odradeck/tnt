@@ -1,0 +1,70 @@
+<h1><%= @lesson.date.strftime("%m-%d")%>의 교훈</h1>
+  	
+	<div class='row-fluid'>
+		<div class='span6'>
+			<div class="well">
+			<h4>오늘의 교훈</h4>
+			<%= @lesson.today %>
+			</div>
+		</div>
+		
+		<div class='span6'>
+			<div class="well">
+			<h4>내일의 목표</h4>
+			<%= @lesson.tomorrow %>
+			</div>
+		</div>
+	</div>
+	
+    <div class='row-fluid'>
+		<div class='span6'>
+			<div class="well">
+			<h4>일지</h4>
+			<%= markdown @lesson.dummylog  %>
+			</div>
+		</div>
+		<div class='span6'>
+			<div class="well">
+			<h4>배운거(Input)</h4>
+			<%= markdown @lesson.input %>
+			<h4>만든거(output)</h4>
+			<%= markdown @lesson.output %>
+			</div>
+		</div>
+	</div>
+	
+	
+	<h4>시간들</h4>
+	<div class='row-fluid'>
+		<div class='span4'>
+			<ul>
+			<li><strong>일한시간 : </strong> <%= @lesson.workinghour %>시간</li>
+			<li><strong>논시간 : </strong> <%= @lesson.playinghour %>시간</li>
+			</ul>
+		</div>
+		<div class='span4'>
+			<ul>
+			<li><strong>업무강도 : </strong> <%= @lesson.work_hardness %></li>
+			<li><strong>몸상태: </strong> <%= @lesson.body_condition %></li>
+			<li><strong>마음상태: </strong> <%= @lesson.mental_condition %></li>
+			</ul>
+
+		</div>
+		<div class='span4'>
+			<ul>
+			<li><strong>기상시간 : </strong> <%= @lesson.wakeuptime %></li>
+			<li><strong>취침시간: </strong> <%= @lesson.sleeptime %></li>
+			</ul>
+		</div>
+	</div>
+    
+    <h4>운동했니?</h4>
+	<% if @lesson.ex_running %>달리기 <%end%>
+	<% if @lesson.ex_upper %>상체 웨이트<%end%>
+	<% if @lesson.ex_lower %>하체웨이트 <%end%>
+	<% if @lesson.ex_mid %>복부웨이트 <%end%>
+	<% if @lesson.ex_streching %>스트레칭 <%end%>
+     
+    
+<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Back', lessons_path %>
