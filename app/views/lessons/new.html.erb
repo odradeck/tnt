@@ -1,22 +1,24 @@
-
 <%if current_user.last_lesson %>
 
-	<div class='row-fluid'>
-		<div class='span6'>
-			<div class="well">
-<h4><%= current_user.last_lesson.date.strftime("%y-%m-%d")%>의 교훈</h4>
-<p>
-<%=current_user.last_lesson.today %></p>
-</div></div>
-<div class='span6'>
-	<div class="well">
-<h4><%= current_user.last_lesson.date.strftime("%y-%m-%d")%>의 목표</h4>
-<p>
-<%=current_user.last_lesson.tomorrow %></p>
-<%end%>
-</div></div>
+<div class='row-fluid'>
+	<div class='span6'>
+		<div class="well">
+			<h4><%= current_user.last_lesson.date.strftime("%y-%m-%d")%>의 교훈</h4>
+			<p>
+				<%= current_user.last_lesson.today %>
+			</p>
+		</div>
+	</div>
+	<div class='span6'>
+		<div class="well">
+			<h4><%= current_user.last_lesson.date.strftime("%y-%m-%d")%>의 목표</h4>
+			<p>
+				<%= current_user.last_lesson.tomorrow %>
+			</p>
+		</div>
+	</div>
 </div>
-
+			<%end%>
 
 <%= render 'form' %>
 
