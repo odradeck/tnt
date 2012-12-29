@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :correct_user,   only: [:show, :destory, :edit, :update]
   # GET /lessons
   # GET /lessons.json
   def index
@@ -45,6 +46,14 @@ class LessonsController < ApplicationController
   def create
     #@lesson = Lesson.new(params[:lesson])
     @lesson = current_user.lessons.build(params[:lesson])
+    
+    if params[:lesson]['wakeuptime(4i)'].blank?
+      @lesson.wakeuptime = nil
+    end
+    
+    if params[:lesson]['sleeptime(4i)'].blank?
+      @lesson.sleeptime = nil
+    end
 
     respond_to do |format|
       if @lesson.save
@@ -61,9 +70,18 @@ class LessonsController < ApplicationController
   # PUT /lessons/1.json
   def update
     @lesson = Lesson.find(params[:id])
-
+    
     respond_to do |format|
       if @lesson.update_attributes(params[:lesson])
+        
+        if params[:lesson]['wakeuptime(4i)'].blank?
+          @lesson.wakeuptime = nil
+          if params[:lesson]['sleeptime(4i)'].blank?
+            @lesson.sleeptime = nil
+          end
+          @lesson.save
+        end
+        
         format.html { redirect_to @lesson, notice: 'Lesson was successfully updated.' }
         format.json { head :no_content }
       else
@@ -84,4 +102,11 @@ class LessonsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+private
+    def correct_user
+      lesson = Lesson.find(params[:id])
+      redirect_to root_path, notice: "Yon can not access" unless current_user.id==lesson.user_id || current_user.admin?
+      
+    end
 end

@@ -1,0 +1,23 @@
+<h2>다른이들의 교훈</h2>
+
+<table class="table table-striped">
+	
+  <tr>
+    <th width="10%">일자</th>
+    <th width="45%">오늘의교훈</th>
+    <th width="45%">내일의목표</th>
+  </tr>
+
+<% @lessons.each do |lesson| %>
+  <tr>
+    <td><%= lesson.date.strftime("%m-%d")%></td>
+    <td><%= lesson.today %></td>
+    <td><%= lesson.tomorrow %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<center><%= will_paginate @lessons%></center>
+
+<%= link_to '나의 교훈 등록하기', new_lesson_path %>

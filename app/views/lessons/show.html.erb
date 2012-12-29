@@ -1,4 +1,4 @@
-<h1><%= @lesson.date.strftime("%m-%d")%>의 교훈</h1>
+<h2><%= @lesson.date.strftime("%m-%d")%>의 교훈</h2>
   	
 	<div class='row-fluid'>
 		<div class='span6'>
@@ -34,15 +34,17 @@
 	</div>
 	
 	
-	<h4>시간들</h4>
+	
 	<div class='row-fluid'>
-		<div class='span4'>
+		<div class='span3'>
+			<h4>시간</h4>
 			<ul>
 			<li><strong>일한시간 : </strong> <%= @lesson.workinghour %>시간</li>
 			<li><strong>논시간 : </strong> <%= @lesson.playinghour %>시간</li>
 			</ul>
 		</div>
-		<div class='span4'>
+		<div class='span3'>
+			<h4>상태</h4>
 			<ul>
 			<li><strong>업무강도 : </strong> <%= @lesson.str_work_hardness %></li>
 			<li><strong>몸상태: </strong> <%= @lesson.str_body_condition %></li>
@@ -50,18 +52,22 @@
 			</ul>
 
 		</div>
-		<div class='span4'>
+		<div class='span3'>
+			<h4>기상</h4>
 			<ul>
-			<li><strong>기상시간 : </strong> <%= @lesson.wakeuptime %></li>
-			<li><strong>취침시간: </strong> <%= @lesson.sleeptime %></li>
+			<li><strong>기상시간 : </strong> <%= @lesson.wakeuptime.strftime("%H:%M") if @lesson.wakeuptime%></li>
+			<li><strong>취침시간 : </strong> <%= @lesson.sleeptime.strftime("%H:%M") if @lesson.sleeptime%></li>
 			</ul>
 		</div>
-	</div>
-    
-    <h4>무슨 운동했니?</h4>
+		<div class='span3'>
+	<h4>무슨 운동했니?</h4>
     <p>
  	<%= @lesson.str_ex %>
  	</p>
+		</div>
+	</div>
+    
+    
      
     
 <%= link_to '수정', edit_lesson_path(@lesson) %> | <%= link_to '삭제', @lesson, confirm: 'Are you sure?', method: :delete %> | <%= link_to '목록', lessons_path %>

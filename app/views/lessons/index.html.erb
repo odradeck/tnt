@@ -1,18 +1,15 @@
-<h1>나의 기록들</h1>
+<h2>나의 기록들</h2>
 
-<table class="table">
+<table class="table table-striped">
+	
   <tr>
     <th>일자</th>
-    <th>오늘의교훈</th>
-    <th>내일의목표</th>
-    <th>업무강도</th>
+    <th width="30%">오늘의교훈</th>
+    <th width="30%">내일의목표</th>
+    <th>빡심</th>
     <th>몸상태</th>
-    <th>정신상태</th>
-    <th>업무/논시간</th>
-    <th>배운거</th>
-    <th>만든거</th>
-    <th>기상시간/취침시간</th>
-    <th>운동</th>
+    <th>정신<br/>상태</th>
+    <th>일시간<br/>논시간</th>
   </tr>
 
 <% @lessons.each do |lesson| %>
@@ -20,22 +17,10 @@
     <td><%= link_to lesson.date.strftime("%m-%d"), lesson %></td>
     <td><%= lesson.today %></td>
     <td><%= lesson.tomorrow %></td>
-    <td><%= lesson.dummylog %></td>
-    
-    <td><%= lesson.wakeuptime %></td>
-    <td><%= lesson.sleeptime %></td>
-    <td><%= lesson.workinghour %></td>
-    <td><%= lesson.playinghour %></td>
-    <td><%= lesson.ex_running %></td>
-    <td><%= lesson.ex_upper %></td>
-    <td><%= lesson.ex_lower %></td>
-    <td><%= lesson.ex_mid %></td>
-    <td><%= lesson.work_hardness %></td>
-    <td><%= lesson.body_condition %></td>
-    <td><%= lesson.mental_condition %></td>
-    <td><%= lesson.input %></td>
-    <td><%= lesson.output %></td>
-    <td><%= lesson.ex_streching %></td>
+    <td><%= lesson.str_work_hardness %></td>
+    <td><%= lesson.str_body_condition %></td>
+    <td><%= lesson.str_mental_condition %></td>
+    <td><%= lesson.workinghour %><br/><%= lesson.playinghour %></td>
   </tr>
 <% end %>
 </table>

@@ -19,6 +19,7 @@ Tnt::Application.routes.draw do
   end
   
   get "main_pages/home"
+  get "main_pages/others"
   get "main_pages/about"
   get "main_pages/help"
   get "main_pages/terms"
@@ -33,6 +34,7 @@ Tnt::Application.routes.draw do
   match '/help', to: 'main_pages#help'
   match '/about', to: 'main_pages#about'
   match '/terms', to: 'main_pages#terms'
+  match '/others', to: 'main_pages#others'
   
 
 
