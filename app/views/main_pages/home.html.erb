@@ -12,6 +12,8 @@
   <%else%>
   <h2>최근 등록된 교훈</h2>
 
+</div>
+
 <% @lessons.each do |lesson| %>
  <div class='row-fluid'>
 	<div class='span6'>
@@ -30,9 +32,3 @@
 	</div>
 </div>
 <% end %>
-
-
-<br />
-<center><%= will_paginate @lessons%></center>
-  <%end%>
-</div>
