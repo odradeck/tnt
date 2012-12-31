@@ -5,7 +5,6 @@
     인생은 하루 하루 배움의 연속입니다.<br/>
     전체등록교훈 : <%=Lesson.all.count%>
   </h2>
-  <br>
   	<% unless user_signed_in? %><center>
   <%= link_to "당장가입", new_user_registration_path, class: "btn btn-large btn-primary" %>
   <a href="/users/auth/facebook" class="services"><img src="/facebook_64.png" width="45px"></a> 
@@ -14,8 +13,8 @@
 
 
 </div>
-
-  <h2>최근 등록된 교훈</h2>
+<center>
+  <h4>최근 등록된 교훈과 목표</h4></center>
 <% @lessons.each do |lesson| %>
  <div class='row-fluid'>
 	<div class='span6'>
