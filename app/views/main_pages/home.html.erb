@@ -9,5 +9,30 @@
   <%= link_to "당장가입", new_user_registration_path, class: "btn btn-large btn-primary" %>
   <a href="/users/auth/facebook" class="services"><img src="/facebook_64.png" width="45px"></a> 
   </center>
+  <%else%>
+  <h2>최근 등록된 교훈</h2>
+
+<% @lessons.each do |lesson| %>
+ <div class='row-fluid'>
+	<div class='span6'>
+		<div class="well">
+			<p>
+				<%= lesson.today %>
+			</p>
+		</div>
+	</div>
+	<div class='span6'>
+		<div class="well">
+			<p>
+				<%= lesson.tomorrow %>
+			</p>
+		</div>
+	</div>
+</div>
+<% end %>
+
+
+<br />
+<center><%= will_paginate @lessons%></center>
   <%end%>
 </div>
