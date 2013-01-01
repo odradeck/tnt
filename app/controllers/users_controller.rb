@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :admin_user, only: [:set_admin, :unset_admin, :show, :index]
+  before_filter :admin_user, only: [:set_admin, :unset_admin, :show, :index, :destory]
      
   def show
     @user = User.find(params[:id])
@@ -33,6 +33,16 @@ class UsersController < ApplicationController
     user.admin = false
     user.save
     redirect_to user    
+  end
+  
+   def destroy
+    @user = TestModel.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_path }
+      format.json { head :no_content }
+    end
   end
   
   
