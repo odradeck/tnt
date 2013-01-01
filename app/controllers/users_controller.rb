@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
   
    def destroy
-    @user = TestModel.find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|

@@ -20,13 +20,8 @@
         <td><%= user.uid %></td>
         <td><%=l user.created_at %></td>
         <td>
-        	<%= link_to "삭제", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete %>
-            <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      user_path(user),
-                      :method => :delete,
-                      :data => { :confirm => "Are you sure?" },
-                      :class => 'btn btn-mini btn-danger' %>
-                      
+        	<%= link_to "삭제", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete,:class => 'btn btn-mini btn-danger' %>
+                  
         </td>
       </tr>
     <% end %>
