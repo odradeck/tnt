@@ -19,14 +19,14 @@
 	<div class='span6'>
 		<div class="well">
 			<p>
-				<%= lesson.today %>
+				<%= lesson.today %> (<%=lesson.today.date.strftime("%m-%d")%>)
 			</p>
 		</div>
 	</div>
 	<div class='span6'>
 		<div class="well">
 			<p>
-				<%= lesson.tomorrow %>
+				<%= lesson.tomorrow (<%=lesson.tomorrow.date.strftime("%m-%d")%>) %>
 			</p>
 		</div>
 	</div>
