@@ -1,4 +1,5 @@
-<h2><%= @lesson.date.strftime("%m-%d")%>의 교훈</h2>
+<h2><%= @lesson.date.strftime("%m-%d")%>의 교훈  	<div class="fb-like" data-href='<%= lesson_url(@lesson)%>' data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+	</h2>
   	
 	<div class='row-fluid'>
 		<div class='span6'>
@@ -15,8 +16,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="fb-like" data-href='<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>' data-send="true" data-width="450" data-show-faces="false"></div>
-	<div class="fb-comments" data-href='<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>' data-width="470" data-num-posts="2"></div>
+	
 	<%if @lesson.user_id == current_user.id%>
     <div class='row-fluid'>
 		<div class='span6'>
