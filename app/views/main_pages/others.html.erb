@@ -15,7 +15,7 @@
     <td><%= link_to lesson.date.strftime("%m-%d"), lesson_path(lesson)%></td>
     <td><%= lesson.today %></td>
     <td><%= lesson.tomorrow %></td>
-    <td><div class="fb-like" data-href='<%= lesson_url(@lesson)%>' data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div></td>
+    <td><div class="fb-like" data-href='<%= lesson_url(lesson)%>' data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div></td>
   </tr>
 <% end %>
 </tbody>
