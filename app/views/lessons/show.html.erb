@@ -15,7 +15,9 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="fb-like" data-href='<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>' data-send="true" data-width="450" data-show-faces="false"></div>
+	<div class="fb-comments" data-href='<%= "#{request.protocol}#{request.host_with_port}#{request.fullpath}" %>' data-width="470" data-num-posts="2"></div>
+	<%if @lesson.user_id == current_user.id%>
     <div class='row-fluid'>
 		<div class='span6'>
 			<div class="well">
@@ -67,7 +69,5 @@
 		</div>
 	</div>
     
-    
-     
-    
 <%= link_to '수정', edit_lesson_path(@lesson) %> | <%= link_to '삭제', @lesson, confirm: 'Are you sure?', method: :delete %> | <%= link_to '목록', lessons_path %>
+<%end%>
