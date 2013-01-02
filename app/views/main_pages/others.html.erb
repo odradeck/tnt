@@ -4,18 +4,19 @@
 <thead>	
   <tr>
     <th width="10%">일자</th>
+    <th width="10%">좋아요</th>
     <th width="40%">오늘의교훈</th>
     <th width="40%">내일의목표</th>
-    <th width="10%">좋아요</th>
+
   </tr>
 </thead>
 <tbody>
 <% @lessons.each do |lesson| %>
   <tr>
     <td><%= link_to lesson.date.strftime("%m-%d"), lesson_path(lesson)%></td>
+    <td><div class="fb-like" data-href='<%= lesson_url(lesson)%>' data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div></td>
     <td><%= lesson.today %></td>
     <td><%= lesson.tomorrow %></td>
-    <td><div class="fb-like" data-href='<%= lesson_url(lesson)%>' data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div></td>
   </tr>
 <% end %>
 </tbody>
