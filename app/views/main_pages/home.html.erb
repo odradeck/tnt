@@ -16,22 +16,19 @@
   <h4>[최근 등록된 교훈과 목표]</h4><br/>
 <% @lessons.each do |lesson| %>
  <div class='row-fluid'>
-	<div class='span5'>
+	<div class='span6'>
 		<div class="well">
 			<p><%= lesson.today %> (<%=lesson.date.strftime("%m-%d")%>)
 				
 			</p>
 		</div>
 	</div>
-	<div class='span5'>
+	<div class='span6'>
 		<div class="well">
 			<p>
 				<%= lesson.tomorrow %> (<%=lesson.date.strftime("%m-%d")%>)
 			</p>
 		</div>
 	</div>
-	<div class='span2'>
-		<div class="fb-like" data-href='<%= lesson_url(lesson)%>' data-send="false" data-layout="button_count" data-width="50" data-show-faces="false"></div>
-		</div>
 </div>
 <% end %>
